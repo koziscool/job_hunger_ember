@@ -38,7 +38,25 @@ export default Ember.Controller.extend({
           that.set('meetups', response.results);
         }
       });
+    },
+
+    findCompanyMeetups() {
+      let that = this;
+      let radius = this.get('radius');
+      let categories = this.get('categories');
+      let company = 'Microsoft';
+      let zip = this.get('zip');
+
+      $.ajax({
+        url: 'https://api.meetup.com/2/open_events?&sign=true&photo-host=public&zip=' + zip + '&text=' + company + '&radius=' + radius + '&page=20&key=707d395716d1d2a7b6d3c6514732343',
+        dataType: "jsonp",
+        success: function(response) {
+          console.log(response);
+          that.set('meetups', response.results);
+        }
+      });
     }
+
   }
 
 });
