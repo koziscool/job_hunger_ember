@@ -13,5 +13,6 @@ export default Recommendable.extend({
   address: attr('string'),
   glassdoor_rating: attr('number'),
   glassdoor_website: attr('string'),
+  interest: attr('number'),
   route: 'companies.company'
 });
